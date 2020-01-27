@@ -7,23 +7,45 @@ Parse gene_onyology.obo as a database, which can be used to annotate the genes o
 #### dict[key] = {}
 ```
 
+%%time
 import re
-open('./path/gene_onyology.obo') as f
-line = f.readline()                     #文件太大了，逐行读取
-regex_id = re.compile('id: (GO:\s[0-9]{7})$')
 
-while line:
-    if line. starswith("id: "):
-        tmp = {}
-        id = re.findall(regex_id, line)
-        dict[id] = tmp  
-        f.readline()
+regex_id = re.compile('id: (GO:[0-9]{7})$')
+line_star = re.compile('^name|^def')
+
+dic = {}
+f = open("C:\\Users\\Administrator\\Downloads\\Gene_ontology.obo")
+line = f.readline()               # 调用文件的 readline()方法，一次读取一行
+while line:                       #需要line = f.readline()  赋值操作，更新line
+    #print(line)
+    if line.startswith("[Term]"):            #可以正确返回True False
+        #print(line)
+        line = f.readline()                       
+        if  line.startswith("id:"):
+            tmp = {}
+            id = re.findall(regex_id, line)
+            #print(str(id))
+            dic[str(id)] = tmp               #dic的键值变为   "['GO:0000001']"  而非 'GO:0000001'
+            
+            line = f.readline()
+
+        elif line.startswith(("name","def")):     #startswith()和endswith()函数的参数可以包在一个括号中一次列出多个，各个参数之间是或的关系
+            print(line)
+            print(line.startswith(("name","def")))
+            part = line.split(":")
+            print(part)
+            tmp[part[0]] =part[1]              #存jin字典中
+            #print(tmp)
+            line = f.readline()
+            
     else:
-        part = line. split(":")
-        tmp[part[0]] =part[1]              #存jin字典中
-        f.readline()
+        line = f.readline()
+    
+#print(dic)
+f.close()             
+print(dict['GO:0000001'])    
 
-f.close()
+
 
 open('./path/Sample.csv'，'a') as de      #用with方便，不需要open和close(注意缩进 Indent)
 lines = de.readlines()
