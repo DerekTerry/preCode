@@ -28,15 +28,17 @@ while line:                       #需要line = f.readline()  赋值操作，更
             dic[str(id)] = tmp               #dic的键值变为   "['GO:0000001']"  而非 'GO:0000001'
             
             line = f.readline()
-
-        elif line.startswith(("name","def")):     #startswith()和endswith()函数的参数可以包在一个括号中一次列出多个，各个参数之间是或的关系
-            print(line)
-            print(line.startswith(("name","def")))
-            part = line.split(":")
-            print(part)
-            tmp[part[0]] =part[1]              #存jin字典中
-            #print(tmp)
-            line = f.readline()
+        #如何将下面的操作限制在 一个【Term】内
+        #目前操作顺序：【Term】 -> 【name】 更新line 之后，就跳到下一个【Term】
+        #而不会依次读完一个        【Term】 -> 【name】 -> 【namespace】 -> 【def】
+            if line.startswith(("name","def")):     #startswith()和endswith()函数的参数可以包在一个括号中一次列出多个，各个参数之间是或的关系
+                print(line)
+                print(line.startswith(("name","def")))
+                part = line.split(":")
+                print(part)
+                tmp[part[0]] =part[1]              #存jin字典中
+                #print(tmp)
+                line = f.readline()
             
     else:
         line = f.readline()
