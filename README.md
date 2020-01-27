@@ -109,6 +109,19 @@ def: "The maintenance of the structure and integrity of the mitochondrial genome
 is_a: GO:0007005 ! mitochondrion organization
 ```
 
+```
+{
+'GO:0000001':{
+    'name': 'mitochondrion inheritance',
+    'namespace': 'biological_process',
+    'def':'....'
+    },
+    
+'GO:0000001':{...
+}
+}
+```
+
 ```Reminder
 Syntax highlighted code block
 
