@@ -86,25 +86,10 @@ version: releases/2018-09-19
 date: 18:11:2019 04:10
 saved-by: jenkins-slave
 subsetdef: gocheck_do_not_annotate "Term not to be used for direct annotation"
-subsetdef: gocheck_do_not_manually_annotate "Term not to be used for direct manual annotation"
-subsetdef: goslim_agr "AGR slim"
-subsetdef: goslim_aspergillus "Aspergillus GO slim"
-subsetdef: goslim_candida "Candida GO slim"
-subsetdef: goslim_chembl "ChEMBL protein targets summary"
-subsetdef: goslim_generic "Generic GO slim"
-subsetdef: goslim_metagenomics "Metagenomics GO slim"
-subsetdef: goslim_mouse "Mouse GO slim"
-subsetdef: goslim_pir "PIR GO slim"
-subsetdef: goslim_plant "Plant GO slim"
-subsetdef: goslim_pombe "Fission yeast GO slim"
-subsetdef: goslim_synapse "synapse GO slim"
-subsetdef: goslim_yeast "Yeast GO slim"
 !synonymtypedef: syngo_official_label "label approved by the SynGO project" ! synonymtypedef not supported by OBO 1.0
-!synonymtypedef: systematic_synonym "Systematic synonym" EXACT ! synonymtypedef not supported by OBO 1.0
 default-namespace: gene_ontology
 remark: cvs version: use data-version
-remark: Includes Ontology(OntologyID(Anonymous-39)) [Axioms: 285 Logical Axioms: 285]
-remark: Includes Ontology(OntologyID(OntologyIRI(<http://purl.obolibrary.org/obo/go/never_in_taxon.owl>))) [Axioms: 18 Logical Axioms: 0]
+
 ontology: go
 
 [Term]
